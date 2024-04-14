@@ -1,0 +1,31 @@
+{
+  "name": "ep2",
+  "version": "1.0.0",
+  "description": "This is ignite your app ep",
+
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhalife/NReact.git"
+  },
+  "keywords": [
+    "react",
+    "app"
+  ],
+  "author": "shubhalife",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhalife/NReact/issues"
+  },
+  "homepage": "https://github.com/shubhalife/NReact#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
