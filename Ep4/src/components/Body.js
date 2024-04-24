@@ -5,7 +5,10 @@ import ShimmerUI from "./ShimmerUI";
 
 const Body = () => {
   const [ListRestuarants, setListRestuarants] = useState([]);
+  const [FilterRestuarants, setFilterRestuarants] = useState([]);
+
   //use state return array and we are doing array distructuring
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -17,30 +20,48 @@ const Body = () => {
     );
 
     const json = await data.json();
+    //optional chaining
     const restaurantList =
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
 
     setListRestuarants(restaurantList);
+    setFilterRestuarants(restaurantList);
   };
 
-  if (ListRestuarants.length === 0) {
-    return <ShimmerUI />;
-  }
-
-  return (
+  //Condional Rendering with ternary operator
+  return ListRestuarants.length === 0 ? (
+    <ShimmerUI />
+  ) : (
     <div className="appBody">
       <div className="search">
-        <input type="text" />
-        <button>Search</button>
+        <input
+          className="form-control form-control-sm"
+          type="text"
+          placeholder="Search for restuarants and food"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button
+          className="btncss btn btn-outline-primary"
+          onClick={() => {
+            console.log(searchText);
+            const filterSearch = ListRestuarants.filter((res) =>
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+            setFilterRestuarants(filterSearch);
+          }}
+        >
+          Search
+        </button>
       </div>
       <BtnFilter
         ListRestuarants={ListRestuarants}
-        setListRestuarants={setListRestuarants}
+        setFilterRestuarants={setFilterRestuarants}
       />
 
       <div className="res-container">
-        {ListRestuarants.map((restaurant) => (
+        {FilterRestuarants.map((restaurant) => (
           <ResCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>

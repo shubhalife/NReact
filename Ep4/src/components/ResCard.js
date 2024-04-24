@@ -10,13 +10,13 @@ const ResCard = (props) => {
         <img className="menu" src={CDN_URL + cloudinaryImageId} />
       </div>
       <div className="details">
-        <h3>{name}</h3>
-        <h3>{cuisines.join(", ")}</h3>
-        <h3>Price: {costForTwo} /-</h3>
-        <h3>
+        <h5>{name}</h5>
+        <h6>{cuisines.join(", ")}</h6>
+        <h6>Price: {costForTwo} /-</h6>
+        <h6>
           <span className="material-symbols-outlined">star</span>
           {avgRatingString} Star
-        </h3>
+        </h6>
       </div>
     </div>
   );

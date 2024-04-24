@@ -2,9 +2,9 @@ import ShimmerResCard from "./ShimmerResCard";
 const ShimmerUI = () => {
   return (
     <>
-      <div className="search">
+      <div className="shimmer-search">
         <input type="text" />
-        <button>Search</button>
+        <button></button>
       </div>
       <div className="filter">
         <button className="shimmer-btn"></button>

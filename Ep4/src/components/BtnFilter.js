@@ -1,36 +1,36 @@
 import { resList } from "../utils/mockData";
 const BtnFilter = (props) => {
-  const { ListRestuarants, setListRestuarants } = props;
+  const { ListRestuarants, setFilterRestuarants } = props;
   return (
     <div className="filter">
       <button
-        className="filter-btn"
+        className="btn btn-outline-danger btncss"
         onClick={() => {
           const filterList = ListRestuarants.filter(
             (res) => res.info.avgRatingString > 4.4
           );
-          setListRestuarants(filterList);
+          setFilterRestuarants(filterList);
           //console.log(filterList);
         }}
       >
         Top Rated
       </button>
       <button
-        className="filter-btn"
+        className="btn btn-outline-danger btncss"
         onClick={() => {
           const PizzaList = ListRestuarants.filter((res) =>
             res.info.cuisines.includes("Pizzas")
           );
-          setListRestuarants(PizzaList);
+          setFilterRestuarants(PizzaList);
           // console.log(PizzaList);
         }}
       >
         Pizza
       </button>
       <button
-        className="clear-filter-btn"
+        className="btn btn-outline-primary btncss"
         onClick={() => {
-          setListRestuarants(resList);
+          setFilterRestuarants(ListRestuarants);
         }}
       >
         Clear filter
