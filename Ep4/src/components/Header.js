@@ -1,5 +1,6 @@
 import logo from "../../foodlogo.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [LoginText, setLoginText] = useState({
@@ -18,24 +19,24 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
-            <a className="btn btn-outline-light" href="#" role="button">
+            <Link className="btn btn-outline-light" to="/">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="btn btn-outline-light" href="#" role="button">
+            <Link className="btn btn-outline-light" to="/about">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="btn btn-outline-light" href="#" role="button">
-              Contact Us
-            </a>
+            <Link className="btn btn-outline-light" to="/contact">
+              Contact us
+            </Link>
           </li>
           <li>
-            <a className="btn btn-outline-light" href="#" role="button">
+            <Link className="btn btn-outline-light" to="/cart">
               Cart
-            </a>
+            </Link>
           </li>
           <li>
             <button
